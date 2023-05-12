@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>JSP Page</title>
+</head>
+<body>
+<div class="container" style="margin-top: 10px;">
+    <div class="row"
+         style="border: 1px darkgrey solid; border-radius: 10px; width: 50%; margin: 0 auto; padding: 20px;">
+        <div class="col-sm-12">
+
+            <h2>Tour</h2>
+            <form th:action="${ACTION}" th:object=${USER} method="post">
+                <div class="form-group">
+                    <label>UserName</label>
+                    <input type="text" th:field="*{username}" class="form-control" name="username" placeholder="Enter UserName" id="username" value="">
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" class="form-control" th:field="*{email}" name="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" th:field="*{phone}" class="form-control" name="phone" placeholder="Enter phone" id="phone" value="">
+                </div>
+                <div class="form-group">
+                    <label>PLace</label>
+                    <select  th:field="*{place}" class="form-control" name="place" placeholder="Enter place" id="place" value="">
+                        <option value="Đà Nẵng">Đà Nẵng</option>
+                        <option value="Đà Lạt">Đà Lạt</option>
+                        <option value="Hội An">Hội An</option>
+                        <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                    </select><br>
+                </div>
+                <div class="form-group">
+                    <label>People</label>
+                    <input type="number" th:field="*{people}" class="form-control" name="people" placeholder="Enter people" id="people" value="0">
+                </div>
+                <div class="form-group">
+                    <label>Checkin</label>
+                    <input type="date" th:field="*{checkin}" class="form-control" id="checkin" name="checkin"><br>
+                </div>
+                <div class="form-group">
+                    <label>Checkout</label>
+                    <input type="date" th:field="*{checkout}" class="form-control" id="checkout" name="checkout"><br>
+                </div>
+                <div class="form-group">
+                    <label >Roomtype</label>
+                    <select id="roomtype" th:field="*{roomtype}" class="form-control" name="roomtype">
+                        <option value="standard">Phòng tiêu chuẩn</option>
+                        <option value="deluxe">Phòng sang trọng</option>
+                        <option value="suite">Suite</option>
+                    </select><br>
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="radio">
+                        <!--value = 1 => Nam| 0 =>Nu -->
+                        <label class="checkbox-inline">
+                            <input type="radio" th:field="*{gender}" name="gender" value="1" id="gender1">Male</label>
+                        <label class="checkbox-inline">
+                            <input type="radio" th:field="*{gender}" name="gender" checked="checked" value="0" id="gender2">Female</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="reset" class="btn btn-primary">Cancel</button>
+                <a class="btn btn-primary" href="/">Back</a>
+                <a class="btn btn-primary" href="/list">Display List User</a>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
